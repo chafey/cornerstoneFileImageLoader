@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- twitter bootstrap CSS stylesheet - included to make things pretty, not needed or used by cornerstone -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="cornerstone.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1>Example of displaying a DICOM P10 image using Cornerstone</h1>
+        <p class="lead">
+            Open a DICOM file that you want to view
+        </p>
+        <p>
+            This example illustrates how to use the cornerstoneFileImageLoader to read a DICOM P10
+            SOP instance from the file system and display it in your web browser using cornerstone.  Only
+            uncompressed little endian transfer syntaxes are currently supported and use of an
+            explicit little endian transfer syntax is recommended.
+        </p>
+        <br>
+        <br>
+        <strong>Use of this example require IE10+ or any other modern browser.</strong>
+
+    </div>
+
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <input type="file" id="selectFile" >
+            </div>
+        </form>
+    </div>
+
+    <div style="width:512px;height:512px;position:relative;color: white;display:inline-block;border-style:solid;border-color:black;"
+         oncontextmenu="return false"
+         class='disable-selection noIbar'
+         unselectable='on'
+         onselectstart='return false;'
+         onmousedown='return false;'>
+        <div id="dicomImage"
+             style="width:512px;height:512px;top:0px;left:0px; position:absolute">
+        </div>
+    </div>
+</div>
+</body>
+
+
+<!-- jquery - currently a dependency and thus required for using cornerstoneWADOImageLoader -->
+<script src="jquery.min.js"></script>
+
+<!-- include the cornerstone library -->
+<script src="cornerstone.min.js"></script>
+
+<!-- include the dicomParser library as the WADO image loader depends on it -->
+<script src="dicomParser.min.js"></script>
+
+<!-- include the cornerstoneWADOImageLoader library -->
+<script src="cornerstoneWADOImageLoader.min.js"></script>
+<script src="../dist/cornerstoneFileImageLoader.js"></script>
+
+<script>
+
+
+    $(document).ready(function() {
+
+        var element = $('#dicomImage').get(0);
+        cornerstone.enable(element);
+
+        // Listen for the change event on our input element so we can get the
+        // file selected by the user
+        $('#selectFile').on('change', function(e) {
+            // Add the file to the cornerstoneFileImageLoader and get unique
+            // number for that file
+            var file = e.target.files[0];
+            var index = cornerstoneFileImageLoader.addFile(file);
+
+            // create an imageId for this image
+            var imageId = "dicomfile://" + index;
+
+            // load and display this image into the element
+            var element = $('#dicomImage').get(0);
+            cornerstone.loadImage(imageId).then(function(image) {
+                cornerstone.displayImage(element, image);
+            });
+
+        });
+
+    });
+
+</script>
+</html>
