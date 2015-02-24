@@ -1,8 +1,8 @@
 {
-    "name": "cornerstoneWADOImageLoader",
+    "name": "cornerstoneFileImageLoader",
     "version": "0.4.6",
-    "description": "Cornerstone ImageLoader for DICOM WADO",
-    "main" : "dist/cornerstoneWADOImageLoader.js",
+    "description": "Cornerstone ImageLoader for DICOM P10 Files",
+    "main" : "dist/cornerstoneFileImageLoader.js",
     "ignore": [
         "examples",
         "src",
@@ -24,10 +24,10 @@
     },
     "license": "MIT",
     "authors" : ["Chris Hafey"],
-    "homepage": "https://github.com/chafey/cornerstoneWADOImageLoader",
-    "keywords": ["DICOM", "medical", "imaging", "WADO", "cornerstone"],
+    "homepage": "https://github.com/chafey/cornerstoneFileImageLoader",
+    "keywords": ["DICOM", "medical", "imaging", "cornerstone"],
     "repository": {
         "type": "git",
-        "url": "https://github.com/chafey/cornerstoneWADOImageLoader.git"
+        "url": "https://github.com/chafey/cornerstoneFileImageLoader.git"
     }
 }
