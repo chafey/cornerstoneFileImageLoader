@@ -11,7 +11,7 @@ Alpha but usable, see key features and backlog below.
 Live Examples
 ---------------
 
-[Click here for a live example of this library in use!](http://rawgithub.com/chafey/cornerstoneWADOImageLoader/master/examples/index.html)
+[Click here for a live example of this library in use!](http://rawgithub.com/chafey/cornerstoneFileImageLoader/master/examples/index.html)
 
 Install
 -------
@@ -24,14 +24,15 @@ Get a packaged source file:
 Usage
 -------
 
-The cornerstoneWADOImageLoader depends on the following libraries:
+The cornerstoneFileImageLoader depends on the following libraries:
 
 1. [jQuery](https://github.com/jquery/jquery)
 2. [dicomParser](https://github.com/chafey/dicomParser) 
 3. [cornerstone](https://github.com/chafey/cornerstone)
-3. [cornerstoneWADOImageLoader](https://github.com/chafey/cornerstoneWADOImageLoader)
+4. [cornerstoneWADOImageLoader](https://github.com/chafey/cornerstoneWADOImageLoader)
+5. [JPEG2000 Codec](https://github.com/OHIF/image-JPEG2000)
 
-All three of these libraries should be loaded before the cornerstoneFileImageLoader.js.  See the source code
+All of these libraries should be loaded before the cornerstoneFileImageLoader.js.  See the source code
 for the [example](https://rawgithub.com/chafey/cornerstoneFileImageLoader/master/examples/index.html).
 
 Before loading a file, the user needs to select it using the file input element or via drag and drop.  Once you
@@ -49,9 +50,7 @@ Once you have this imageId, you can load it using normal cornerstone methods.
 Key Features
 ------------
 
-* Implements a [cornerstone ImageLoader](https://github.com/chafey/cornerstone/wiki/ImageLoader) for DICOM P10 Instances via a HTTP get request. 
-  * Can be used with a WADO server
-  * Can be used with Orthanc's file endpoint
+* Implements a [cornerstone ImageLoader](https://github.com/chafey/cornerstone/wiki/ImageLoader) for DICOM P10 Instances as (File)[https://developer.mozilla.org/en-US/docs/Web/API/File].
 * Supports multiframe
 * Supported pixel formats:
     * 8 bit grayscale
