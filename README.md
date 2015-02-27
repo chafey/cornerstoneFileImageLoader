@@ -2,11 +2,12 @@ cornerstone DICOM P10 File Image Loader
 =======================================
 
 A [cornerstone](https://github.com/chafey/cornerstone) Image Loader for DICOM P10 instances stored
-as files.
+as files.  This library is built on top of
 
 Project Status
 ---------------
-Alpha but usable, see key features and backlog below.
+Alpha but usable, see key features and backlog of [cornerstoneWADOImageLoader](https://github.com/chafey/cornerstoneWADOImageLoader),
+please view its page for the features it supports and backlog.
 
 Live Examples
 ---------------
@@ -20,6 +21,10 @@ Get a packaged source file:
 
 * [cornerstoneFileImageLoader.js](https://raw.githubusercontent.com/chafey/cornerstoneFileImageLoader/master/dist/cornerstoneFileImageLoader.js)
 * [cornerstoneFileImageLoader.min.js](https://raw.githubusercontent.com/chafey/cornerstoneFileImageLoader/master/dist/cornerstoneFileImageLoader.min.js)
+
+or install from bower
+
+> bower install cornerstone-file-image-loader
 
 Usage
 -------
@@ -44,25 +49,6 @@ dicomfile:http://1
 ```
 
 Once you have this imageId, you can load it using normal cornerstone methods.
-
-
-
-Key Features
-------------
-
-* Implements a [cornerstone ImageLoader](https://github.com/chafey/cornerstone/wiki/ImageLoader) for DICOM P10 Instances as (File)[https://developer.mozilla.org/en-US/docs/Web/API/File].
-* Supports multiframe
-* Supported pixel formats:
-    * 8 bit grayscale
-    * 16 bit grayscale (unsigned and signed)
-    * RGB Color
-    * YBRFull Color
-    * YBRFull422 Color (including encapsulated)
-* Supported transfer syntaxes
-    * Implicit Little Endian
-    * Explicit Little Endian
-
-NOTE: JPEG2000 is not supported!
 
 Build System
 ============
@@ -95,32 +81,6 @@ Running the build:
 
 Automatically running the build and unit tests after each source change:
 > grunt watch
-
-Backlog
-------------
-
-* Support images with Pixel Padding
-* Mask out burned in overlays?
-* Consider alternatives to jQuery for deferred (when.js?)
-* Add error handling
-* Add support for compressed transfer syntaxes
-  * JPEG 2000
-  * JPEG
-  * RLE
-* Add support for less common pixel formats
-
-
-FAQ
-===
-
-_Why is this a separate library from cornerstone?_
-
-Mainly to avoid adding a dependency to cornerstone for the DICOM parsing library.  While cornerstone is
-intended to be used to display medical images that are stored in DICOM, cornerstone aims to simplify
-the use of medical imaging and therefore tries to hide some of the complexity that exists within
-DICOM.  It is also desirable to support display of non DICOM images so a DICOM independent image model
-makes sense.
-
 
 Copyright
 ============
