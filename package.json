@@ -1,6 +1,6 @@
 {
-    "name": "cornerstoneFileImageLoader",
-    "version": "0.4.6",
+    "name": "cornerstone-file-image-loader",
+    "version": "0.5.0",
     "description": "Cornerstone ImageLoader for DICOM P10 Files",
     "keywords": [
         "DICOM",
